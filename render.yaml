@@ -1,0 +1,20 @@
+services:
+  - type: background
+    name: elasticsearch
+    env: docker
+    repo: https://github.com/camphanho/elk-render
+    dockerfilePath: Dockerfile.elasticsearch
+    plan: standard
+    autoDeploy: false
+
+  - type: web
+    name: kibana
+    env: docker
+    repo: https://github.com/camphanho/elk-render
+    dockerfilePath: Dockerfile.kibana
+    plan: starter
+    autoDeploy: false
+    envVars:
+      - key: ELASTICSEARCH_HOSTS
+        value: http://elasticsearch:9200
+
