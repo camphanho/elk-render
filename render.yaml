@@ -1,5 +1,5 @@
 services:
-  - type: background
+  - type: worker
     name: elasticsearch
     env: docker
     repo: https://github.com/camphanho/elk-render
